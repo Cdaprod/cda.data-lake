@@ -98,8 +98,8 @@ classDiagram
 
 In this Mermaid.js class diagram, we've represented each repository as a class, with methods indicating the primary operations they perform. The relationships between these classes hint at the interactions between different repositories in orchestrating the overall data lake operations. This visual representation should provide a clear understanding to a DevOps professional about the roles and interactions of each repository within the project.
 
-```merma
-graph TD;
+```mermaid
+graph LR;
 
     subgraph Python Agents
         agents[cda.agents]
