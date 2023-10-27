@@ -1,4 +1,6 @@
 # cda.data-lake
+## Public Facing Repository
+
 Cdaprod Data Lake for cda namespace.
 
 Creating a data lake infrastructure on a Kubernetes platform is a large-scale project that requires careful planning, robust design, and efficient execution. The `Cdaprod` GitHub organization hosts a variety of repositories, each serving a unique role in this overarching project. Let's delve into the engineering perspective of how these repositories intertwine to form a coherent and functional data lake infrastructure.
