@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-devops-tools-ns
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-issue-classifier-deployment
+  namespace: my-devops-tools-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: github-issue-classifier
+  template:
+    metadata:
+      labels:
+        app: github-issue-classifier
+    spec:
+      containers:
+      - name: github-issue-classifier-container
+        image: your-docker-image:github-issue-classifier
+        env:
+        - name: GH_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: github-credentials-secret
+              key: GH_TOKEN
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: object-indexing-deployment
+  namespace: my-devops-tools-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: object-indexing
+  template:
+    metadata:
+      labels:
+        app: object-indexing
+    spec:
+      containers:
+      - name: object-indexing-container
+        image: your-docker-image:object-indexing
+        env:
+        - name: MINIO_ENDPOINT
+          value: "your-minio-endpoint"
+
+# ... Add more Deployments for each tool as needed
