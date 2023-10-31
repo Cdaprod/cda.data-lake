@@ -1,3 +1,6 @@
 [submodule "apps"]
 	path = apps
 	url = https://github.com/openai/chatgpt-retrieval-plugin
+[submodule "my-apps/cda.retrieval-plugin"]
+	path = my-apps/cda.retrieval-plugin
+	url = git@github.com:Cdaprod/cda.retrieval-plugin.git
