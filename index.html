@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weaviate Query Interface</title>
+</head>
+<body>
+
+<div id="query-interface">
+    <select id="class-selector">
+        <!-- Populate this with your schema classes -->
+        <option value="ObjectData">Objects Data</option>
+        <option value="ClassData">Classes Data</option>
+        <option value="BlogPost">Blog Posts</option>
+        <option value="SourceCode">Source Code</option>
+        <option value="KnowledgeBase">Knowledge Base</option>
+        <option value="DataLake">Data Lake</option>
+    </select>
+
+    <textarea id="properties-input" placeholder="Enter properties, comma separated"></textarea>
+
+    <button onclick="query()">Query</button>
+</div>
+
+<script>
+    async function query() {
+        const class_name = document.getElementById('class-selector').value;
+        const properties = document.getElementById('properties-input').value.split(',');
+        const response = await fetch('/query/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({class_name, properties}),
+        });
+        const result = await response.json();
+        console.log(result);  // Log the result to console, you can display it on page as needed
+    }
+</script>
+
+</body>
+</html>

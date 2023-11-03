@@ -1,6 +1,7 @@
 import minio
 import weaviate
 from langchain import Agents, ToolsRegistry, Tool
+from DynamicToolStorage import MinioTool, WeavaiteTool
 
 # Initialize Minio Client
 minio_client = minio.Minio(
