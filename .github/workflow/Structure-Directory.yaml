@@ -1,0 +1,26 @@
+name: Setup Repository Structure
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Create Directory Structure
+      run: |
+        mkdir -p .github/workflows config/{development,production} deploy/{scripts,kubernetes,docker} src tests metadata models
+        touch .gitignore README.md LICENSE
+        echo "# cda.Repo Name" > README.md
+        echo "MIT License" > LICENSE
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'Repository Setup Bot'
+        git config --global user.email 'cdaprod@cdaprod'
+        git add .
+        git commit -m "Setup initial repository structure" || echo "No changes to commit"
+        git push origin main
