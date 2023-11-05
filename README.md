@@ -3,6 +3,70 @@
 
 Cdaprod Data Lake for cda namespace.
 
+# Data Lake Project
+
+Welcome to the Data Lake Project repository. This document provides an overview of the architecture, technologies used, and guidelines for contributors.
+
+## Overview
+
+Our Data Lake is designed to be a centralized repository that allows you to store all your structured and unstructured data at any scale. It's built to handle high volumes of data, from various sources, in different formats. The goal is to make data accessible for various analytics and machine learning endeavors.
+
+## Architecture
+
+The architecture of our Data Lake is designed for scalability, reliability, and security. Here's a high-level overview:
+
+- **Ingestion Layer**: Handles the intake of data from various sources.
+- **Storage Layer**: Comprises a scalable and secure data storage system.
+- **Processing Layer**: For data transformation and processing tasks.
+- **Consumption Layer**: Where data is served to end-users or applications.
+
+## Technologies & Tools
+
+We leverage a variety of technologies and tools to build and maintain our Data Lake:
+
+
+![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=ffffff)
+![MinIO](https://img.shields.io/badge/-MinIO-F68A1F?style=flat&logo=minio&logoColor=ffffff)
+![Apache Spark](https://img.shields.io/badge/-Apache%20Spark-E25A1C?style=flat&logo=apache-spark&logoColor=ffffff)
+![Hadoop](https://img.shields.io/badge/-Hadoop-66CCFF?style=flat&logo=apache-hadoop&logoColor=ffffff)
+![AWS](https://img.shields.io/badge/-AWS-232F3E?style=flat&logo=amazon-aws&logoColor=ffffff)
+![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat&logo=docker&logoColor=ffffff)
+![Kubernetes](https://img.shields.io/badge/-Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=ffffff)
+![Terraform](https://img.shields.io/badge/-Terraform-7B42BC?style=flat&logo=terraform&logoColor=ffffff)
+
+## Getting Started
+
+To get started with the Data Lake project, please refer to the following guides:
+
+- **Installation**: Instructions on setting up the Data Lake environment.
+- **Configuration**: How to configure data ingestion and processing workflows.
+- **Usage**: Documentation on using the Data Lake for analytics.
+
+## Contribution Guidelines
+
+We welcome contributions from the community. Please refer to `CONTRIBUTING.md` for more details on how to submit pull requests, report issues, and suggest enhancements.
+
+## License
+
+This project is licensed under the terms of the MIT license.
+
+## Contact
+
+For any further queries, please reach out to the project maintainers:
+
+- **David Cannan**: [Github](https://github.com/Cdaprod/Cdaprod)
+
+Thank you for your interest in our Data Lake project!
+
+---
+
+This README is part of the Data Lake documentation:
+
+```/Development/Documentation/DataLakeREADME.md```
+
+
+---
+
 # Layers
 
 Creating a class diagram for your repository structure can help visualize the relationships and hierarchies within your system. I will outline a Mermaid.js class diagram for you, which you can use in a compatible editor to generate the visual representation.
