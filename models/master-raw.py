@@ -735,9 +735,164 @@ class GitHubAPI:
             print(f"Failed to create webhook for {repository.full_name}: {response.text}")
             response.raise_for_status()
 
+### ----------------- AbstractConfigManager 
 
-### -----------------
 
+from abc import ABC, abstractmethod
+from pydantic import BaseModel, SecretStr, Field
+from typing import Optional, Dict, List
+
+# Your ClientConnection and APIConfig classes would go here
+
+class AbstractConfigManager(ABC):
+
+    @abstractmethod
+    def load_client_connection(self, service_name: str, connection_details: dict):
+        """Load and validate client connection details."""
+        pass
+
+    @abstractmethod
+    def load_api_config(self, api_name: str, api_details: dict):
+        """Load and validate API config details."""
+        pass
+
+    @abstractmethod
+    def get_client_connection(self, service_name: str) -> ClientConnection:
+        """Retrieve the client connection details."""
+        pass
+
+    @abstractmethod
+    def get_api_config(self, api_name: str) -> APIConfig:
+        """Retrieve the API configuration."""
+        pass
+
+# A concrete implementation of the abstract class
+class ConfigManager(AbstractConfigManager):
+    def __init__(self):
+        self.client_connections = {}
+        self.api_configs = {}
+
+    def load_client_connection(self, service_name: str, connection_details: dict):
+        self.client_connections[service_name] = ClientConnection(**connection_details)
+
+    def load_api_config(self, api_name: str, api_details: dict):
+        self.api_configs[api_name] = APIConfig(**api_details)
+
+    def get_client_connection(self, service_name: str) -> ClientConnection:
+        return self.client_connections.get(service_name)
+
+    def get_api_config(self, api_name: str) -> APIConfig:
+        return self.api_configs.get(api_name)
+
+# Example usage would be the same as before, but now using the ConfigManager class
+
+### ---------------------- AbstracrConfigManager example use
+
+# Assuming the AbstractConfigManager and ConfigManager classes have been defined as shown before
+
+# Initialize the ConfigManager
+config_manager = ConfigManager()
+
+# Example client connection details
+client_connection_details = {
+    "service_name": "Minio Storage Service",
+    "service_type": "cloud_storage",
+    "hostname": "minio.example.com",
+    "port": 9000,
+    "username": "miniouser",
+    "password": "miniosecretpassword",
+    # ... other details
+}
+
+# Load client connection details into the manager
+config_manager.load_client_connection(
+    service_name=client_connection_details['service_name'],
+    connection_details=client_connection_details
+)
+
+# Example API config details
+api_config_details = {
+    "api_name": "GitHub API",
+    "api_base_url": "https://api.github.com",
+    "api_key": "ghp_exampleGithubToken",
+    # ... other details
+}
+
+# Load API config details into the manager
+config_manager.load_api_config(
+    api_name=api_config_details['api_name'],
+    api_details=api_config_details
+)
+
+# Retrieve client connection details for Minio
+minio_connection = config_manager.get_client_connection("Minio Storage Service")
+print(f"Minio Connection: {minio_connection}")
+
+# Retrieve API config details for GitHub
+github_api_config = config_manager.get_api_config("GitHub API")
+print(f"GitHub API Config: {github_api_config}")
+
+
+### ---------------------- ConfigManager
+
+from pydantic import BaseModel, SecretStr, Field
+from typing import Optional, Dict, List
+import os
+
+# Assuming ClientConnection is as defined in your provided code...
+
+class APIConfig(BaseModel):
+    api_name: str = Field(..., description="Name of the API")
+    api_key: SecretStr = Field(..., description="API key for the service")
+    api_url: str = Field(..., description="Base URL for the API")
+    additional_headers: Optional[Dict[str, str]] = Field(None, description="Additional headers required for the API")
+
+class ConfigManager:
+    def __init__(self):
+        self.client_connections = {}
+        self.api_configs = {}
+
+    def load_client_connection(self, service_name: str, connection_details: dict):
+        # Load and validate client connection details using ClientConnection model
+        self.client_connections[service_name] = ClientConnection(**connection_details)
+
+    def load_api_config(self, api_name: str, api_details: dict):
+        # Load and validate API config details using APIConfig model
+        self.api_configs[api_name] = APIConfig(**api_details)
+
+    def get_client_connection(self, service_name: str) -> ClientConnection:
+        return self.client_connections.get(service_name)
+
+    def get_api_config(self, api_name: str) -> APIConfig:
+        return self.api_configs.get(api_name)
+
+    @staticmethod
+    def get_env_variable(var_name: str) -> str:
+        return os.getenv(var_name)
+
+# Example usage:
+config_manager = ConfigManager()
+
+# Load client connection details for a database
+config_manager.load_client_connection('my_database', {
+    "service_name": "My Database",
+    "service_type": "database",
+    # ... other details ...
+})
+
+# Load API config details for GitHub
+config_manager.load_api_config('github', {
+    "api_name": "GitHub",
+    "api_key": config_manager.get_env_variable('GITHUB_TOKEN'),
+    "api_url": "https://api.github.com",
+    # ... other details ...
+})
+
+# Now you can use the config manager to access client connection and API config
+db_connection = config_manager.get_client_connection('my_database')
+github_config = config_manager.get_api_config('github')
+
+# Use these details to make connections or API calls
 
 
 ### -----------------

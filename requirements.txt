@@ -1,3 +1,10 @@
 langchain
 minio
 weaviate-client
+numpy
+pandas
+langchain
+pydantic
+fastapi
+uvicorn
+python_dotenv

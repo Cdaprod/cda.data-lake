@@ -1,0 +1,22 @@
+﻿Name,Property,Parent item,Sub-item
+FeatureStore,,Metastore (https://www.notion.so/Metastore-1a0da97874af465ea5cc7c3355262450?pvs=21),ExtractTransformLoad (https://www.notion.so/ExtractTransformLoad-ebdf6608cc7b4548883150aa78b89bb5?pvs=21)
+RepoConfig,,MetastoreAsset (https://www.notion.so/MetastoreAsset-917f5c6847de44f399371bb8ff2b15d5?pvs=21),
+ClientConfig,,MetastoreAsset (https://www.notion.so/MetastoreAsset-917f5c6847de44f399371bb8ff2b15d5?pvs=21),"ConnectionDetails (https://www.notion.so/ConnectionDetails-16dea6b6fa694275897c431a2de33f52?pvs=21), ClientConnect (https://www.notion.so/ClientConnect-b3be2fe2b0d7458d85e567009c173258?pvs=21)"
+ConnectionDetails,,ClientConfig (https://www.notion.so/ClientConfig-0775270f707848e98a084071ca67b23d?pvs=21),
+ClientConnect,,ClientConfig (https://www.notion.so/ClientConfig-0775270f707848e98a084071ca67b23d?pvs=21),"GithubAPI (https://www.notion.so/GithubAPI-821d7e6efd0f499fb7bcd9c489306f6d?pvs=21), MinioClient (https://www.notion.so/MinioClient-f109e082672c4133b21dd8d26ff6c596?pvs=21), WeaviateClient (https://www.notion.so/WeaviateClient-eac1c22af6c146c1bf944bc9b323030b?pvs=21)"
+ExtractTransformLoad,,FeatureStore (https://www.notion.so/FeatureStore-3a4c18ece49e47b1ac93d0a9ad0f3956?pvs=21),
+GithubAPI,,ClientConnect (https://www.notion.so/ClientConnect-b3be2fe2b0d7458d85e567009c173258?pvs=21),
+MinioClient,,ClientConnect (https://www.notion.so/ClientConnect-b3be2fe2b0d7458d85e567009c173258?pvs=21),
+WeaviateClient,,ClientConnect (https://www.notion.so/ClientConnect-b3be2fe2b0d7458d85e567009c173258?pvs=21),
+cda.langchain,,Repository (https://www.notion.so/Repository-cb65013747a64734b4467b2bbc46b24c?pvs=21),LangChainApp(Repository) (https://www.notion.so/LangChainApp-Repository-6c631b3b51f14e14b5a227a45f1daac3?pvs=21)
+LangChainApp(Repository),,cda.langchain (https://www.notion.so/cda-langchain-a746126324ca41739eada0976d146cc2?pvs=21),
+Metastore,,cda.metastore (https://www.notion.so/cda-metastore-82898ec5eb874633873e8d61ad6a8023?pvs=21),"MetastoreAsset (https://www.notion.so/MetastoreAsset-917f5c6847de44f399371bb8ff2b15d5?pvs=21), FeatureStore (https://www.notion.so/FeatureStore-3a4c18ece49e47b1ac93d0a9ad0f3956?pvs=21)"
+ApiGateway(Repository),,cda.data-lake (https://www.notion.so/cda-data-lake-108fa61cbf4c47c4aebce631c2f60432?pvs=21),
+LangchainDataLakeSystem (w/ API),,cda.data-lake (https://www.notion.so/cda-data-lake-108fa61cbf4c47c4aebce631c2f60432?pvs=21),
+Cdaprod(TOP),,,Server (https://www.notion.so/Server-92bf75d60d4044c298a5eca937d5d0d6?pvs=21)
+Server,,Cdaprod(TOP) (https://www.notion.so/Cdaprod-TOP-0481cd4340b14fbc87246c4c5d27d1ec?pvs=21),
+Owner,,,
+Repository,,,"cda.data-lake (https://www.notion.so/cda-data-lake-108fa61cbf4c47c4aebce631c2f60432?pvs=21), cda.langchain (https://www.notion.so/cda-langchain-a746126324ca41739eada0976d146cc2?pvs=21), cda.metastore (https://www.notion.so/cda-metastore-82898ec5eb874633873e8d61ad6a8023?pvs=21)"
+cda.data-lake,,Repository (https://www.notion.so/Repository-cb65013747a64734b4467b2bbc46b24c?pvs=21),"LangchainDataLakeSystem (w/ API) (https://www.notion.so/LangchainDataLakeSystem-w-API-0d0a286a3c5d40cc8cf174259338ca87?pvs=21), ApiGateway(Repository) (https://www.notion.so/ApiGateway-Repository-a0012fff9afc420bb347ca9258235b0a?pvs=21)"
+cda.metastore,,Repository (https://www.notion.so/Repository-cb65013747a64734b4467b2bbc46b24c?pvs=21),Metastore (https://www.notion.so/Metastore-1a0da97874af465ea5cc7c3355262450?pvs=21)
+MetastoreAsset,,Metastore (https://www.notion.so/Metastore-1a0da97874af465ea5cc7c3355262450?pvs=21),"RepoConfig (https://www.notion.so/RepoConfig-f21afbe11f0a419f92b35d5b6b822287?pvs=21), ClientConfig (https://www.notion.so/ClientConfig-0775270f707848e98a084071ca67b23d?pvs=21)"
