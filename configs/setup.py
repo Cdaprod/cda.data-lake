@@ -8,7 +8,7 @@ setup(
     description='A data lake system for storing and processing data for CDA applications.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/Cdaprod/cda-data-lake',
+    url='https://github.com/Cdaprod/cda.data-lake',
     packages=find_packages(),
     classifiers=[
         'Programming Language :: Python :: 3',
@@ -20,13 +20,13 @@ setup(
         'sqlalchemy',
         'fastapi',
         'pydantic',
-        'weaviate-client',
         'minio',
-        'langchain',
+        'langchain',  # Assuming langchain is a valid package
+        'weaviate-client',  # Assuming weaviate-client is a valid package
     ],
     entry_points={
         'console_scripts': [
-            # define console scripts if any
+            'cda-datalake=cda.Data-Lake:main'  # Adjust according to the entry function in your script
         ],
     },
 )

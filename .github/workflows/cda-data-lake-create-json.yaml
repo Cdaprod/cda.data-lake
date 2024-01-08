@@ -1,0 +1,37 @@
+name: Create JSON Data
+
+on: 
+  push:
+    branches: 
+      - main  # or any other branch as per your requirement
+  workflow_dispatch: # allows manual triggering
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'  # Ensure this matches your required Python version
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt  # If you have any dependencies
+
+      - name: Run cda.Data-Lake.py script
+        run: python cda.Data-Lake.py
+
+      - name: Create Data Directory and Move JSON File
+        run: |
+          mv data_lake.json data/data_lake.json  # Adjust the filename if different
+
+      - name: Archive JSON File
+        uses: actions/upload-artifact@v2
+        with:
+          name: data-json
+          path: data/data_lake.json
